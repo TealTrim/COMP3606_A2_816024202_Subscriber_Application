@@ -2,6 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Permissions: -->
+    <!-- Internet Permission: -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Location Permissions: -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" tools:targetApi="33" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,15 +21,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.COMP3606_A2_816024202_Sub_App"
         tools:targetApi="31">
+
+        <!-- PermissionActivity as launch activity: -->
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".PermissionActivity"
+            android:exported="true"
+            android:theme="@style/Theme.COMP3606_A2_816024202_Sub_App">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- MainActivity: -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.COMP3606_A2_816024202_Sub_App" />
+
+        <!-- Google Maps API Key: -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="GOOGLE_MAPS_API_KEY_HERE" />
     </application>
 
 </manifest>
